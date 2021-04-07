@@ -115,15 +115,6 @@
                     d3.select(this).style("stroke", "red")
                     d3.select(this).style("stroke-width", .6)
 
-                    tooltip.transition()
-                        .duration(200)
-                        .style("opacity", .9)
-                        .style('stroke-width', 0.8);
-
-                    tooltip.html(d["properties"]["name"] + "<br/> (" + xValue(d)
-                        + ", " + yValue(d) + ")")
-                        .style("left", (d3.event.pageX + 5) + "px")
-                        .style("top", (d3.event.pageY - 28) + "px");
                 })
 				.on('mouseout', function(d){
                     d3.select(this).style("stroke", "white")
@@ -198,15 +189,6 @@
                     .style("stroke", "red")
                     .style("stroke-width", 0.6);
                 **/
-                tooltip.transition()
-                    .duration(200)
-                    .style("opacity", .9)
-                    .style('stroke-width', 0.8);
-
-                tooltip.html(b["Country"] + "<br/> (" + xValue(b)
-                    + ", " + yValue(b) + ")")
-                    .style("left", (d3.event.pageX + 5) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
             })
             .on("mouseout", function(d) {
                 d3.select(this).style("fill", function(d) { return color(d[fieldColor]);})
