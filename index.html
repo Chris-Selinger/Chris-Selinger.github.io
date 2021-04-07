@@ -111,14 +111,25 @@
 				.style('stroke', 'white')
 				.style('opacity', 0.8)
 				.style('stroke-width', 0.3)
-				.on('mouseover',function(d){
+				.on('mouseover',function(b){
                     d3.select(this).style("stroke", "red")
                     d3.select(this).style("stroke-width", .6)
 
+                    d3.selectAll(".dot")
+                        .filter(function (d) {
+                            return (b["properties"]["name"] === d["Country"]);
+                        })
+                        .style("fill", "red");
+
                 })
-				.on('mouseout', function(d){
+				.on('mouseout', function(b){
                     d3.select(this).style("stroke", "white")
                     d3.select(this).style("stroke-width", .3)
+                    d3.selectAll(".dot")
+                        .filter(function (d) {
+                            return (b["properties"]["name"] === d["Country"]);
+                        })
+                        .style("fill", function(d) { return color(d[fieldColor]);})
                 });
 
 		svg.append('path')
